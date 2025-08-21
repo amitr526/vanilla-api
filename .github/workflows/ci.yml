@@ -28,11 +28,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          # cache: 'npm'
 
       - name: Install dependencies
         run: |
-          npm init -y
+          npm install
 
       - name: Install SWA and Azure Function tool
         run: npm install -g @azure/static-web-apps-cli azure-functions-core-tools
