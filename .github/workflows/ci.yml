@@ -23,16 +23,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           # cache: 'npm'
-
       - name: Install dependencies
-        run: npm ci
-      
+        run: npm install
       - name: Install SWA and Azure Function tool
         run: npm install -g @azure/static-web-apps-cli azure-functions-core-tools
       - name: Install Playwright
