@@ -31,18 +31,15 @@ jobs:
           # cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          npm install
-
+        run: npm ci
+      
       - name: Install SWA and Azure Function tool
         run: npm install -g @azure/static-web-apps-cli azure-functions-core-tools
-
       - name: Install Playwright
         run: npx playwright install --with-deps
-
-      - name: Run tests
-        run: |
-          npm run test --if-present
+      
+      - name: Run playwright tests
+        run: npm run test
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
